@@ -21,12 +21,12 @@
 	</script>
 	<!--end::Web font -->
         <!--begin::Base Styles -->
-	<?php echo link_tag('assetsXI/vendors/base/vendors.bundle.css?v=' . $cache_no); ?>
-	<?php echo link_tag('assetsXI/demo/default/base/style.bundle.css?v=' . $cache_no); ?>
+	<?php echo link_tag('assets/vendors/base/vendors.bundle.css?v=' . $cache_no); ?>
+	<?php echo link_tag('assets/demo/default/base/style.bundle.css?v=' . $cache_no); ?>
 
 
 	<!--end::Base Styles -->
-	<link rel="shortcut icon" href="assetsXI/demo/default/media/img/logo/favicon.ico" />
+	<link rel="shortcut icon" href="assets/demo/default/media/img/logo/favicon.ico" />
 	<script> var main_base_url = "<?= base_url(); ?>";</script>
     </head>
     <!-- end::Head -->
@@ -38,7 +38,7 @@
 		    <div class="m-login__container">
 			<div class="m-login__logo">
 			    <a href="#">
-				<img src="<?= base_url(); ?>assetsXI/app/media/img//logos/logo-1.png">
+				<img src="<?= base_url(); ?>assets/app/media/img//logos/logo-1.png">
 			    </a>
 			</div>
 			<div class="m-login__signin">
@@ -173,16 +173,16 @@
 
 	<!-- end:: Page -->
 	<!--begin::Base Scripts -->
-	<script src="<?= base_url(); ?>assetsXI/vendors/base/vendors.bundle.js" type="text/javascript"></script>
-	<script src="<?= base_url(); ?>assetsXI/demo/default/base/scripts.bundle.js" type="text/javascript"></script>
+	<script src="<?= base_url(); ?>assets/vendors/base/vendors.bundle.js" type="text/javascript"></script>
+	<script src="<?= base_url(); ?>assets/demo/default/base/scripts.bundle.js" type="text/javascript"></script>
 	<!--end::Base Scripts -->   
         <!--begin::Page Snippets -->
-	<script src="<?= base_url(); ?>assetsXI/snippets/custom/pages/user/login.js" type="text/javascript"></script>
+	<script src="<?= base_url(); ?>assets/snippets/custom/pages/user/login.js" type="text/javascript"></script>
 	<!--end::Page Snippets -->
 
         <!-- -->
 	<!--begin::Page Snippets -->
-	<script src="<?= base_url(); ?>assetsXI/app/js/login.js" type="text/javascript"></script>
+	<script src="<?= base_url(); ?>assets/app/js/login.js" type="text/javascript"></script>
 	<!--end::Page Snippets -->
 
     </body>

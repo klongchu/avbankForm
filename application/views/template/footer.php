@@ -700,6 +700,7 @@
 <!--begin::Base Scripts -->
 <script src="<?php echo base_url(); ?>assets/vendors/base/vendors.bundle.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/demo/demo9/base/scripts.bundle.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/demo/default/base/scripts.bundle.js" type="text/javascript"></script>
 <!--end::Base Scripts -->   
 <!--begin::Page Vendors -->
 

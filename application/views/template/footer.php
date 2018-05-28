@@ -721,10 +721,14 @@
 <!-- Main -->
 <!-- Follow Pages -->
 <?php
-$this_ctrl = $this->router->fetch_class();;
+$this_ctrl = $this->router->fetch_class();
+$this_one = $this->uri->segment(2);
 if($this_ctrl == 'admin'){
     ?>
 <script src="<?php echo base_url(); ?>assets/app/js/admin.js" type="text/javascript"></script>
+<?php
+if($this_one == ''){
+   ?>
 <script>
     var table = $('#list-datatable');
 $(document).ready(function () {
@@ -733,9 +737,25 @@ $(document).ready(function () {
 </script>
 <?php
 }
+?>
+
+<?php
+}
 elseif($this_ctrl == 'staff'){
 ?>
-<script src="<?php echo base_url(); ?>assets/app/js/admin.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/app/js/staff.js" type="text/javascript"></script>
+<?php
+if($this_one == ''){
+   ?>
+<script>
+    var table = $('#list-datatable');
+$(document).ready(function () {
+    initialDataTable(true);
+});
+</script>
+<?php
+}
+?>
 <?php  
 }
 elseif($this_ctrl == 'bank'){
@@ -746,6 +766,36 @@ elseif($this_ctrl == 'bank'){
 elseif($this_ctrl == 'member'){
 ?>
 <script src="<?php echo base_url(); ?>assets/app/js/member.js" type="text/javascript"></script>
+<?php
+if($this_one == ''){
+   ?>
+<script>
+    var table = $('#list-datatable');
+$(document).ready(function () {
+    initialDataTable(true);
+});
+</script>
+<?php
+}
+?>
+<?php  
+}
+elseif($this_ctrl == 'memberbank'){
+?>
+<script src="<?php echo base_url(); ?>assets/app/js/memberbank.js" type="text/javascript"></script>
+<?php
+if($this_one == ''){
+   ?>
+<script>
+    var table = $('#list-datatable');
+    var id = "<?=$_GET[id];?>";
+$(document).ready(function () {
+    initialDataTable(true,id);
+});
+</script>
+<?php
+}
+?>
 <?php  
 }
 else{

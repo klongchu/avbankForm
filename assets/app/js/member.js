@@ -6,7 +6,7 @@ function initialDataTable(initial) {
     //alert(main_base_url);
     $.ajax({
         type: 'GET',
-        url: main_base_url + 'admin/datatable',
+        url: main_base_url + 'member/datatable',
         dataType: 'json',
         cache: false,
         beforeSend: function () {
@@ -25,11 +25,25 @@ function initialDataTable(initial) {
                         return row.s_firstname+' '+row.s_lastname;
                     }
                 }, {
-                    field: "s_level",
-                    title: "ระดับ",
+                    field: "s_phone",
+                    title: "เบอร์โทร",
                     sortable: 'asc',
                     template: function (row) {
-                        return 'เจ้าหน้าที่ระดับหัวหน้า';
+                        return row.s_phone;
+                    }
+                }, {
+                    field: "s_line",
+                    title: "ไลน์ไอดี",
+                    sortable: 'asc',
+                    template: function (row) {
+                        return row.s_line;
+                    }
+                }, {
+                    field: "webname",
+                    title: "เว็บที่เล่น",
+                    sortable: 'asc',
+                    template: function (row) {
+                        return row.webname;
                     }
                 }, {
                     field: "s_status",
@@ -46,7 +60,9 @@ function initialDataTable(initial) {
                     sortable: !1,
                     overflow: "visible",
                     template: function (row) {
-                        return '<a href="'+main_base_url+'admin/form?id='+row.id+'" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details">\t\t\t\t\t\t\t<i class="la la-edit"></i>\t\t\t\t\t\t</a>'
+                        var act = '<a href="'+main_base_url+'memberbank?id='+row.i_id+'" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Bank">\t\t\t\t\t\t\t<i class="fa fa-bank"></i>\t\t\t\t\t\t</a>'
+                         act += '<a href="'+main_base_url+'member/form?id='+row.i_id+'" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details">\t\t\t\t\t\t\t<i class="la la-edit"></i>\t\t\t\t\t\t</a>'
+                        return act;
                     }
                 }];
             initialDataTables(table, jsonColumn, res.data);
@@ -66,7 +82,7 @@ function validUser(username) {
     if (id == 0) {
         $.ajax({
             type: 'POST',
-            url: main_base_url + "admin/validUser",
+            url: main_base_url + "member/validUser",
             data: {username: username},
             beforeSend: function () {
                 //$('#se-pre-con').fadeIn(100);
@@ -116,7 +132,7 @@ function save() {
     var dataform = $('#dataform').serialize();
     $.ajax({
         type: 'POST',
-        url: main_base_url + "admin/Postdata",
+        url: main_base_url + "member/Postdata",
         data: dataform,
         beforeSend: function () {
             //$('#se-pre-con').fadeIn(100);

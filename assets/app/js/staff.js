@@ -6,7 +6,7 @@ function initialDataTable(initial) {
     //alert(main_base_url);
     $.ajax({
         type: 'GET',
-        url: main_base_url + 'admin/datatable',
+        url: main_base_url + 'staff/datatable',
         dataType: 'json',
         cache: false,
         beforeSend: function () {
@@ -29,7 +29,7 @@ function initialDataTable(initial) {
                     title: "ระดับ",
                     sortable: 'asc',
                     template: function (row) {
-                        return 'เจ้าหน้าที่ระดับหัวหน้า';
+                        return 'เจ้าหน้าที่';
                     }
                 }, {
                     field: "s_status",
@@ -46,7 +46,7 @@ function initialDataTable(initial) {
                     sortable: !1,
                     overflow: "visible",
                     template: function (row) {
-                        return '<a href="'+main_base_url+'admin/form?id='+row.id+'" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details">\t\t\t\t\t\t\t<i class="la la-edit"></i>\t\t\t\t\t\t</a>'
+                        return '<a href="'+main_base_url+'staff/form?id='+row.id+'" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details">\t\t\t\t\t\t\t<i class="la la-edit"></i>\t\t\t\t\t\t</a>'
                     }
                 }];
             initialDataTables(table, jsonColumn, res.data);

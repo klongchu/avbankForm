@@ -10,9 +10,11 @@ if ($_GET[id]) {
     $s_phone = $row->s_phone;
     $s_line = $row->s_line;
     $readonly = ' disabled="disabled" ';
+    $txt_btn = "แก้ไขข้อมูลเจ้าหน้าที่ระดับหัวหน้า";
 } else {
     $id = 0;
     $chk_username = 0;
+    $txt_btn = "เพิ่มข้อมูลเจ้าหน้าที่ระดับหัวหน้า";
 }
 $level = $this->db->select('*')->get('tb_level')->result();
 ?>
@@ -22,7 +24,7 @@ $level = $this->db->select('*')->get('tb_level')->result();
         <div class="d-flex align-items-center">
             <div class="mr-auto">
                 <h3 class="m-subheader__title m-subheader__title--separator">
-                    เพิ่มเจ้าหน้าที่ระดับหัวหน้า
+                    <?=$txt_btn;?>
                 </h3>
                 <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
                     <li class="m-nav__item m-nav__item--home">
@@ -44,7 +46,7 @@ $level = $this->db->select('*')->get('tb_level')->result();
                     <li class="m-nav__item">
                         <a href="<?= base_url('admin'); ?>" class="m-nav__link">
                             <span class="m-nav__link-text">
-                                เจ้าหน้าที่ระดับหัวหน้า
+                                ข้อมูลเจ้าหน้าที่ระดับหัวหน้าทั้งหมด
                             </span>
                         </a>
                     </li>
@@ -160,7 +162,7 @@ $level = $this->db->select('*')->get('tb_level')->result();
                                 <div class="col-lg-2"></div>
                                 <div class="col-lg-6">
                                     <button type="button" id="btn_save" onclick="return save();" class="btn btn-primary">
-                                        เพิ่มเจ้าหน้าที่ระดับหัวหน้า
+                                        <?=$txt_btn;?>
                                     </button>
                                     <button type="reset" class="btn btn-danger">
                                         ยกเลิก

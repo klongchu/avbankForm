@@ -10,10 +10,13 @@ if($_GET[id]){
    $s_phone = $row->s_phone;
    $s_line = $row->s_line;
    $readonly = ' disabled="disabled" ';
+   $txt_btn = "แก้ไขข้อมูลเจ้าหน้าที่";
 }else{
     $id = 0;
     $chk_username = 0;
+    $txt_btn = "เพิ่มข้อมูลเจ้าหน้าที่";
 }
+$level = $this->db->select('*')->get('tb_level')->result();
 ?>
 <div class="m-grid__item m-grid__item--fluid m-wrapper">
     <!-- BEGIN: Subheader -->
@@ -21,7 +24,7 @@ if($_GET[id]){
         <div class="d-flex align-items-center">
             <div class="mr-auto">
                 <h3 class="m-subheader__title m-subheader__title--separator">
-                    เพิ่มเจ้าหน้าที่
+                    <?=$txt_btn;?>
                 </h3>
                 <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
                     <li class="m-nav__item m-nav__item--home">
@@ -43,7 +46,7 @@ if($_GET[id]){
                     <li class="m-nav__item">
                         <a href="<?= base_url('staff'); ?>" class="m-nav__link">
                             <span class="m-nav__link-text">
-                                เจ้าหน้าที่
+                                ข้อมูลเจ้าหน้าที่ทั้งหมด
                             </span>
                         </a>
                     </li>
@@ -159,7 +162,7 @@ if($_GET[id]){
                                 <div class="col-lg-2"></div>
                                 <div class="col-lg-6">
                                     <button type="button" id="btn_save" onclick="return save();" class="btn btn-primary">
-                                        เพิ่มเจ้าหน้าที่ระดับหัวหน้า
+                                        <?=$txt_btn;?>
                                     </button>
                                     <button type="reset" class="btn btn-danger">
                                         ยกเลิก

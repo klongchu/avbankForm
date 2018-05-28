@@ -1,10 +1,29 @@
+<?php
+if ($_GET[id]) {
+    $id = $_GET[id];
+    $chk_username = 1;
+    $row = $this->db->select('*')->where('i_id', $id)->get('tb_member')->row();
+    $s_username = $row->s_username;
+    $i_website = $row->i_website;
+    $s_firstname = $row->s_firstname;
+    $s_lastname = $row->s_lastname;
+    $s_phone = $row->s_phone;
+    $s_line = $row->s_line;
+    $readonly = ' disabled="disabled" ';
+} else {
+    redirect('member', 'refresh');
+}
+if($s_username == ''){
+    redirect('member', 'refresh');
+}
+?>
 <div class="m-grid__item m-grid__item--fluid m-wrapper">
     <!-- BEGIN: Subheader -->
     <div class="m-subheader ">
         <div class="d-flex align-items-center">
             <div class="mr-auto">
                 <h3 class="m-subheader__title m-subheader__title--separator">
-                    เจ้าหน้าที่
+                    ธนาคารของลูกค้า
                 </h3>
                 <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
                     <li class="m-nav__item m-nav__item--home">
@@ -20,6 +39,26 @@
                             </span>
                         </a>
                     </li>
+                    <li class="m-nav__separator">
+                        -
+                    </li>
+                    <li class="m-nav__item">
+                        <a href="<?= base_url('member'); ?>" class="m-nav__link">
+                            <span class="m-nav__link-text">
+                                ลูกค้าทั้งหมด
+                            </span>
+                        </a>
+                    </li>
+                    <li class="m-nav__separator">
+                        -
+                    </li>
+                    <li class="m-nav__item">
+                        <a href="#" class="m-nav__link">
+                            <span class="m-nav__link-text">
+                                <?=$s_username;?> (<?=$s_firstname;?>)
+                            </span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -28,12 +67,9 @@
     <div class="m-content">
 
         <div class="m-portlet m-portlet--mobile">
-            
-
             <div class="m-portlet__body">
                 <!--begin: Search Form -->
-                <div
-                    class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
+                <div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
                     <div class="row align-items-center">
                         <div class="col-xl-8 order-2 order-xl-1">
                             <div class="form-group m-form__group row align-items-center">
@@ -70,11 +106,11 @@
                             </div>
                         </div>
                         <div class="col-xl-4 order-1 order-xl-2 m--align-right">
-                            <a href="<?= base_url('staff/form');?>" class="btn btn-primary m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">
+                            <a href="<?= base_url('memberbank/form');?>?u=<?=$s_username;?>" class="btn btn-primary m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">
                                 <span>
                                     <i class="fa fa-user-plus"></i>
                                     <span>
-                                        เพิ่มเจ้าหน้าที่
+                                        เพิ่มธนาคารของลูกค้า
                                     </span>
                                 </span>
                             </a>
